@@ -46,7 +46,11 @@ MonoBehaviour:
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   controlID: 9
+=======
+  controlID: 44
+>>>>>>> a068ee367687fe0cee75015ea3c2a98ad84b5e37
 =======
   controlID: 44
 >>>>>>> a068ee367687fe0cee75015ea3c2a98ad84b5e37
@@ -215,7 +219,11 @@ MonoBehaviour:
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
   controlID: 10
+=======
+  controlID: 45
+>>>>>>> a068ee367687fe0cee75015ea3c2a98ad84b5e37
 =======
   controlID: 45
 >>>>>>> a068ee367687fe0cee75015ea3c2a98ad84b5e37
