@@ -3,24 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class MyNetworkManager : MonoBehaviour {
+public class MyNetworkManager : NetworkManager {
     private NetworkManager networkManager;
 
 
 
 
 	// Use this for initialization
-	void Start () {
-        networkManager = GetComponent<NetworkManager>();
-	}
-
     public void MyStartHost () {
         Debug.Log("Starting host at" + Time.timeSinceLevelLoad);
-        networkManager.StartHost();
+        StartHost() ;
     }
 	
 	// Update is called once per frame
-	override void Update () {
+	public override void OnStartHost () {
         Debug.Log("Host started at " + Time.timeSinceLevelLoad);
 	}
+
+    public override void OnStartClient(NetworkClient myClient) {
+        Debug.Log(Time.timeSinceLevelLoad + " Client start requested.");
+        InvokeRepeating("PrintDots", 0f, 1f);
+    }
+
+    public override void OnClientConnect(NetworkConnection conn)
+    {
+        Debug.Log(Time.timeSinceLevelLoad + " Client is connect to IP: " + conn.address);
+        CancelInvoke ();
+    }
+
+    void PrintDots ()
+    {
+        Debug.Log(".");
+    }
 }
