@@ -30,4 +30,4 @@ public class Player : NetworkBehaviour {
         GetComponentInChildren<Camera>().enabled = true;
     }
 }
-}
+
