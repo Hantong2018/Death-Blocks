@@ -62,8 +62,6 @@ public class PlayerMotor : MonoBehaviour {
     {
         if (hit.point.z > transform.position.z + controller.radius)
             Death();
-        if (hit.point.x > transform.position.x + controller.radius)
-            Death();
     }
 
     private void Death()
