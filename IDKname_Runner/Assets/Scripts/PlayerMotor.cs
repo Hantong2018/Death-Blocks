@@ -71,3 +71,5 @@ public class PlayerMotor : MonoBehaviour {
     }
 
 }
+//https://answers.unity.com/questions/33710/allowing-player-to-pass-through-a-gameobject-with.html
+//https://answers.unity.com/questions/1424260/how-to-get-the-player-to-pass-through-an-object-wh.html
