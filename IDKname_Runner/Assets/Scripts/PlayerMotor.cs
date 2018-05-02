@@ -12,7 +12,7 @@ public class PlayerMotor : MonoBehaviour {
     private float gravity = 12.0f;
     private float animationDuration = 3.0f;
 
-    private bool isDead = false;
+    public bool isDead = false;
 
 	// Use this for initialization
 	void Start () {

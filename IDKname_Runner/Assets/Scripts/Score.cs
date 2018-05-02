@@ -14,7 +14,7 @@ public class Score : MonoBehaviour {
     public Text scoreText;
     public DeathMenu deathMenu;
 
-    private bool isDead = false;
+	public bool isDead = false;
 
 	// Use this for initialization
 	void Start () {
