@@ -1,50 +1,44 @@
-using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
+﻿using UnityEngine;
+using System.Collections;
 
-public class ChangeColor : MonoBehaviour, IPointerClickHandler
+public class ChangeColor : MonoBehaviour 
 {
-	void OnEnable ()
-	{
-	}
+	public Color[] colors = new Color[4];
 
-	public void SetRed(float value)
+	void Start()
 	{
-		OnValueChanged(value, 0);
+		colors[0] = Color.blue;
+		colors[1] = Color.red;
+		colors[2] = Color.magenta;
+		colors[3] = Color.white;
+		gameObject.GetComponent<Renderer>().material.color = colors[Random.Range(0, colors.Length)];
 	}
-	
-	public void SetGreen(float value)
+	void OnTriggerEnter(Collider other)
 	{
-		OnValueChanged(value, 1);
-	}
-	
-	public void SetBlue(float value)
-	{
-		OnValueChanged(value, 2);
-	}
-	
-	public void OnValueChanged(float value, int channel)
-	{
-		Color c = Color.white;
-
-		if (GetComponent<Renderer>() != null)
-			c = GetComponent<Renderer>().material.color;
-		else if (GetComponent<Light>() != null)
-			c = GetComponent<Light>().color;
 		
-		c[channel] = value;
+		if (other.gameObject.tag == "block") {
+			Debug.Log ("hello");
 
-		if (GetComponent<Renderer>() != null)
-			GetComponent<Renderer>().material.color = c;
-		else if (GetComponent<Light>() != null)
-			GetComponent<Light>().color = c;
+		}
+		
 	}
-
-	public void OnPointerClick(PointerEventData data)
+	void Update()
 	{
-		if (GetComponent<Renderer>() != null)
-			GetComponent<Renderer>().material.color = new Color(Random.value, Random.value, Random.value, 1.0f);
-		else if (GetComponent<Light>() != null)
-			GetComponent<Light>().color = new Color(Random.value, Random.value, Random.value, 1.0f);
+
+		if (Input.GetKeyDown (KeyCode.Alpha1)) {
+			gameObject.GetComponent<Renderer> ().material.color = Color.blue;
+		} else if (Input.GetKeyDown (KeyCode.Alpha2)) {
+			gameObject.GetComponent<Renderer> ().material.color = Color.red;
+		} else if (Input.GetKeyDown (KeyCode.Alpha3)) {
+			gameObject.GetComponent<Renderer> ().material.color = Color.magenta;
+		}else if (Input.GetKeyDown (KeyCode.Alpha4)) {
+			gameObject.GetComponent<Renderer> ().material.color = Color.white;
+		}
+			
+
+
+
+
 	}
+
 }
